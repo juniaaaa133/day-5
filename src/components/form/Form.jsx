@@ -1,17 +1,31 @@
 import React, { useState } from 'react'
 import './index.css'
 
-const Form = ({createUser}) => {
+const Form = ({createUser,setErrorUi}) => {
 
 let [info,setInfo] = useState({
     name : '',
     location : '',
-    postal_code : ''
+    email : ''
 })
 
 let logUser = (e) => {
 e.preventDefault();
+
+if(
+    info.name.trim() == 0 ||
+    info.location.trim() == 0 ||
+    info.email.trim() == 0
+){
+ window.confirm('Please fill the valid input field!')
+    return;
+}
 createUser(info)
+setInfo({
+    name : '',
+    location : '',
+    email : ''
+})
 }
 
 let handleInput = (e) => {
@@ -26,10 +40,10 @@ let handleInput = (e) => {
         })
         break;
 
-    case 'code' :
+    case 'email' :
         setInfo({
             ...info,
-            postal_code : char
+            email : char
         })
         break;
 
@@ -40,13 +54,14 @@ let handleInput = (e) => {
         })
         break;
  }
+
 }
 
   return (
     <form className="form">
-        <input type="text" id='name' placeholder='Name' className="input" onChange={(e) => handleInput(e)}/>
-        <input type="text" id='location' placeholder='Location' className="input" onChange={(e) => handleInput(e)}/>
-        <input type="text" id='code' placeholder='Postal Code' className="input" onChange={(e) => handleInput(e)}/>
+        <input value={info.name} type="text" id='name' placeholder='Name' className="input" onChange={(e) => handleInput(e)}/>
+        <input value={info.location} type="text" id='location' placeholder='Location' className="input" onChange={(e) => handleInput(e)}/>
+        <input value={info.email} type="email" id='email' placeholder='Email address' className="input" onChange={(e) => handleInput(e)}/>
     <button className="btn main-f" onClick={(e) => logUser(e)}>Submit</button>
     </form>
     

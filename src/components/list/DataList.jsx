@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './index.css'
-import { FaUserEdit } from "react-icons/fa";
-import { FaDeleteLeft } from "react-icons/fa6";
 
-const DataList = ({name,location,postal_code,editUser}) => {
+const DataList = ({name,location,email}) => {
 
   return (
     <div className='list-ctn'>
@@ -17,7 +15,7 @@ const DataList = ({name,location,postal_code,editUser}) => {
                   </div>
                   <div className="list">
             <div className="list-title main-f">Postal Code</div>
-            <div className="list-data main-f">{postal_code}</div>
+            <div className="list-data main-f">{email}</div>
                   </div>
     </div>
   )

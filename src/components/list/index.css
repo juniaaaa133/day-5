@@ -4,7 +4,7 @@
     padding:  20px;
     border-radius: 3px;
     background-color: #fff;
-    width: 450px;
+    width: 560px;
     height: fit-content;
 }
 .list-info {
@@ -29,4 +29,10 @@
     
     font-size: 15px;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .list-ctn {
+        width: 80%;
+    }
 }
