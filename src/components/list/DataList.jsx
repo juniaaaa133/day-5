@@ -14,7 +14,7 @@ const DataList = ({name,location,email}) => {
             <div className="list-data main-f">{location}</div>
                   </div>
                   <div className="list">
-            <div className="list-title main-f">Postal Code</div>
+            <div className="list-title main-f">Email Address</div>
             <div className="list-data main-f">{email}</div>
                   </div>
     </div>
